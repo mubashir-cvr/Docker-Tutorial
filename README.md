@@ -29,3 +29,10 @@ CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS       
 ## To stop Container
 ```docker stop 9b6ab153633f``` 
 
+## Docker run Specific port of the HOST (PC/LAP)
+
+```docker run -p8000:6379 redis```
+
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                                       NAMES
+d2b1bdb93b51   redis     "docker-entrypoint.s…"   17 seconds ago   Up 17 seconds   0.0.0.0:8000->6379/tcp, :::8000->6379/tcp   gracious_mirzakhani
+
