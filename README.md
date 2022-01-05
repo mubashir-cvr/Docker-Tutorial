@@ -33,6 +33,12 @@ CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS       
 
 ```docker run -p8000:6379 redis```
 
+
+
 CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                                       NAMES
 d2b1bdb93b51   redis     "docker-entrypoint.s…"   17 seconds ago   Up 17 seconds   0.0.0.0:8000->6379/tcp, :::8000->6379/tcp   gracious_mirzakhani
+
+## Running Image With custom Name
+
+```docker  run --name myredis -d redis```
 
