@@ -62,13 +62,20 @@ Using Docker network we can connect express and mongo using name
 
 #### Running Mongo Express in same Network 
 
-```docker run -d  \```
-```--network mongo-network \```
-```--name mongo-express2 \```
-```-p 8081:8081 \```
-```-e ME_CONFIG_BASICAUTH_USERNAME=admin \```
-```-e ME_CONFIG_BASICAUTH_PASSWORD=password \```
-```-e ME_CONFIG_MONGODB_SERVER=mongodb  mongo-express```
+```
+docker run -d \
+    --network mongo-network \
+    --name mongo-express\
+    -p 8081:8081 \
+    -e ME_CONFIG_OPTIONS_EDITORTHEME=ambiance \
+    -e ME_CONFIG_MONGODB_SERVER=mongodb\
+    -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin \
+    -e ME_CONFIG_MONGODB_ADMINPASSWORD=admin \
+    -e ME_CONFIG_BASICAUTH_USERNAME=admin\
+    -e ME_CONFIG_BASICAUTH_PASSWORD=admin \
+    mongo-express
+
+```
 Now Mongo Express is Available in host on localhost:8081
 
 
