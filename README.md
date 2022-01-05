@@ -42,3 +42,34 @@ d2b1bdb93b51   redis     "docker-entrypoint.s…"   17 seconds ago   Up 17 secon
 
 ```docker  run --name myredis -d redis```
 
+
+# MongoDB  & Express Using Docker
+
+```docker pull mongo```
+```docker pull mongo-express```
+
+## Docker Network
+
+```docker network ls ``` (Auto genarated network)
+
+Using Docker network we can connect express and mongo using name
+
+#### Creating Custom Network
+```docker network create mongo-network```
+
+#### Running Mongo in network 
+```docker run -p 27017:27017 -d -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=password --name mongodb --net mongo-network mongo```
+
+#### Running Mongo Express in same Network 
+
+```docker run -d  \```
+```--network mongo-network \```
+```--name mongo-express2 \```
+```-p 8081:8081 \```
+```-e ME_CONFIG_BASICAUTH_USERNAME=admin \```
+```-e ME_CONFIG_BASICAUTH_PASSWORD=password \```
+```-e ME_CONFIG_MONGODB_SERVER=mongodb  mongo-express```
+Now Mongo Express is Available in host on localhost:8081
+
+
+
